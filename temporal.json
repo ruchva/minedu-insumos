@@ -1,0 +1,109 @@
+{
+  "loteRequestInfo" : {
+    "idUnidadEducativa" : null,
+    "idDistrito" : 7062,
+    "idDepartamento" : 7,
+    "codSieUe" : 81981236
+  },
+  "jobId" : "generacion-cd577d52",
+  "username" : "6296326",
+  "diplomas" : [ {
+    "serie" : "SC 2025 0000998",
+    "departamento" : "Santa Cruz",
+    "distrito" : 7062,
+    "codigoRue" : 81981236,
+    "paralelo" : "A",
+    "codigoRude" : "100000000000067740",
+    "especialidad" : "Humanidades",
+    "nombreCompleto" : "LEONOR CABRERA BENITEZ",
+    "lugarNacimiento" : "SANTA CRUZ DE LA SIERRA",
+    "fechaNacimiento" : "18 Aug 2007",
+    "ciudadEmision" : "Santa Cruz",
+    "diaEmision" : "10",
+    "mesAnioEmision" : "November 2025",
+    "codigoBarras2" : "",
+    "firma1" : "LUIS EDGAR GARCIA SALVATIERRA",
+    "firma2" : null,
+    "cargo1" : "Director Departamental",
+    "cargo2" : null,
+    "idTramite" : 3772897,
+    "fotoPath" : null
+  }, {
+    "serie" : "SC 2025 0000999",
+    "departamento" : "Santa Cruz",
+    "distrito" : 7062,
+    "codigoRue" : 81981236,
+    "paralelo" : "A",
+    "codigoRude" : "100000000002457775",
+    "especialidad" : "Humanidades",
+    "nombreCompleto" : "JAIRO CRUZ SARZURI MARTINEZ",
+    "lugarNacimiento" : "SANTA CRUZ DE LA SIERRA",
+    "fechaNacimiento" : "10 Oct 2007",
+    "ciudadEmision" : "Santa Cruz",
+    "diaEmision" : "10",
+    "mesAnioEmision" : "November 2025",
+    "codigoBarras2" : "",
+    "firma1" : "LUIS EDGAR GARCIA SALVATIERRA",
+    "firma2" : null,
+    "cargo1" : "Director Departamental",
+    "cargo2" : null,
+    "idTramite" : 3773419,
+    "fotoPath" : null
+  }]
+}
+
+{
+  "jobId": "d0d3a1db-a115-4ca4-a2d1-a62fe4581ca9",
+  "status": "COMPLETED",
+  "loteInfo": {
+    "descripcion": "Lote procesado asíncronamente - Job ID: d0d3a1db-a115-4ca4-a2d1-a62fe4581ca9",
+    "idUnidadEducativa": null,
+    "idDistrito": 7062,
+    "usuarioRegistro": "6296326",
+    "estado": null,
+    "codSieUe": 81981236,
+    "idDepartamento": 7,
+    "cantidad": 2
+  },
+  "diplomas": [
+    {
+      "serie": "SC 2025 0001461",
+      "departamento": "Santa Cruz",
+      "especialidad": "Humanidades",
+      "nombreCompleto": "LEONOR CABRERA BENITEZ",
+      "lugarNacimiento": "SANTA CRUZ DE LA SIERRA",
+      "fechaNacimiento": "18 Aug 2007",
+      "ciudadEmision": "Santa Cruz",
+      "diaEmision": "11",
+      "mesAnioEmision": "November 2025",
+      "codigoBarras2": "SC 2025 0001461",
+      "firma1": "LUIS EDGAR GARCIA SALVATIERRA",
+      "cargo1": "Director Departamental",
+      "urlDiplomaGenerado": "2025/Santa Cruz/7062/81981236/A/100000000000067740/diploma_generado_100000000000067740.pdf",
+      "diplomaGenerado": "diploma_generado_100000000000067740.pdf",
+      "idTramite": 3772897,
+      "codigoVerificacion": "df263072-9afd-41e9-bcaf-bf4fae4272a8"
+    }, {
+      "serie": "SC 2025 0001462",
+      "departamento": "Santa Cruz",
+      "especialidad": "Humanidades",
+      "nombreCompleto": "JAIRO CRUZ SARZURI MARTINEZ",
+      "lugarNacimiento": "SANTA CRUZ DE LA SIERRA",
+      "fechaNacimiento": "10 Oct 2007",
+      "ciudadEmision": "Santa Cruz",
+      "diaEmision": "11",
+      "mesAnioEmision": "November 2025",
+      "codigoBarras2": "SC 2025 0001462",
+      "firma1": "LUIS EDGAR GARCIA SALVATIERRA",
+      "cargo1": "Director Departamental",
+      "urlDiplomaGenerado": "2025/Santa Cruz/7062/81981236/A/100000000002457775/diploma_generado_100000000002457775.pdf",
+      "diplomaGenerado": "diploma_generado_100000000002457775.pdf",
+      "idTramite": 3773419,
+      "codigoVerificacion": "6fad96be-40e9-4395-9493-fbd7b450216f"
+    }
+  ],
+  "username": "6296326",
+  "errorMessage": null,
+  "totalDocuments": 2,
+  "processedDocuments": 2
+}

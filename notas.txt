@@ -1,0 +1,131 @@
+## Notas y Bitacora del capitan.
+　　Las herramientas, servidores MCP y plugins para BD integrados con IA, son mucho mas utiles para analizar y contextualizar BD legacy.
+　　El mecanismo de autorizacion casbin se puede usar desde base de datos y desde archivos de configuracion y CSV.
+
+## Tipos de graficos:
+Tabla que contiene las cantidades de alumnos matriculados por departamento (dato geografico), municipio (geografico), dependencia (fiscal o privada), nivel (inicial, primaria, secundaria), sexo(hombre, mujer), gestion (desde el 2000 hasta el 2024 aqui van las cantidades de alumnos), las graficas que podemos mostrar en este contexto de datos, las historias que puedes contar con esta informacion:
+
+# 1. Comparaciones y Rankings 📊
+　　Estos gráficos son ideales para comparar las cantidades de alumnos entre diferentes categorías.
+　　Gráfico de Barras: "Top 10 Municipios con más Alumnos"
+　　Qué muestra: Compara el número total de alumnos entre diferentes municipios o departamentos para una gestión específica (ej. 2024).
+　　Variables que necesitas: Municipio (o Departamento) y Cantidad de Alumnos.
+　　Por qué funciona: Es la forma más clara y directa de comparar magnitudes entre categorías.
+　　Gráfico de Barras Agrupadas: "Alumnos por Sexo en cada Nivel"
+　　Qué muestra: Dentro de cada nivel (inicial, primaria, secundaria), compara cuántos son hombres y cuántas son mujeres.
+　　Variables que necesitas: Nivel, Sexo, Cantidad de Alumnos.
+　　Por qué funciona: Permite una comparación de dos niveles en una misma vista.
+
+# 2. Evolución en el Tiempo 📈
+　　Estos son perfectos para ver tendencias a lo largo de los años.
+　　Gráfico de Líneas: "Evolución de Matrículas (2000-2024)"
+　　Qué muestra: Cómo ha cambiado el número total de alumnos matriculados a nivel nacional a lo largo del tiempo.
+　　Variables que necesitas: Gestión (años en el eje X) y Cantidad de Alumnos (en el eje Y).
+　　Por qué funciona: Los gráficos de líneas son la mejor herramienta para visualizar tendencias y cambios en series de tiempo.
+　　Gráfico de Líneas Múltiples: "Matrículas por Dependencia (Fiscal vs. Privada) a lo largo del Tiempo"
+　　Qué muestra: Compara la tendencia de crecimiento o decrecimiento de las escuelas fiscales frente a las privadas.
+　　Variables que necesitas: Gestión, Dependencia, Cantidad de Alumnos.
+　　Por qué funciona: Permite comparar las tendencias de diferentes categorías simultáneamente.
+
+# 3. Composición y Proporciones 🥧
+　　Útiles para entender cómo se distribuye el total de alumnos.
+　　Gráfico Circular (o de Anillo): "Distribución de Alumnos por Dependencia en 2024"
+　　Qué muestra: Qué porcentaje del total de alumnos estudia en el sistema fiscal y qué porcentaje en el privado.
+　　Variables que necesitas: Dependencia y Cantidad de Alumnos.
+　　Por qué funciona: Es muy efectivo para mostrar la composición de un todo cuando tienes pocas categorías (en este caso, solo dos).
+　　Gráfico de Barras Apiladas al 100%: "Proporción de Niveles Educativos por Departamento"
+　　Qué muestra: Para cada departamento, qué porcentaje de sus estudiantes corresponde a inicial, primaria y secundaria. No muestra el total, sino la distribución interna.
+　　Variables que necesitas: Departamento, Nivel, Cantidad de Alumnos.
+　　Por qué funciona: Es excelente para comparar la estructura o composición interna entre diferentes categorías.
+
+# 4. Visualización Geográfica 🗺️
+　　Aprovechando que tienes datos geográficos, puedes "pintar" los datos en un mapa.
+　　Mapa de Coropletas: "Concentración de Alumnos por Departamento"
+　　Qué muestra: Un mapa de Bolivia donde cada departamento está coloreado según la cantidad de alumnos que tiene. Departamentos con más alumnos tendrán un color más intenso.
+　　Variables que necesitas: Departamento y Cantidad de Alumnos.
+　　Por qué funciona: Es la forma más intuitiva y visual de representar datos geográficos, permitiendo identificar patrones regionales de un vistazo.
+　　En resumen, el dataset es rico y te permite contar historias desde diferentes ángulos: comparando regiones, analizando tendencias a lo largo de más de dos décadas, o descomponiendo la población estudiantil por sus características.
+　　Resumen reunion 28 de agosto. LOGROS
+　　se definieron los origenes de datos, para el contexto de logros, data nueva generada y consolidada de forma manual, de inicio no se mostrara la informacion que es trabajada para mostrar las estadisticas, se incorporara esta informacion mas adelante.
+
+# OBJETIVOS CONSULTORIA MINEDU
+Diseñar, desarrollar e implementar sistemas informáticos, con énfasis en la construcción de una herramienta para el procesamiento, visualización y gestión de información sobre logros educativos en los distintos niveles del sistema educativo, así como en el desarrollo de otros sistemas vinculados a proyectos de desburocratización mediante la incorporación de firma digital y la integración con pasarelas de pago.
+
+# DEMO PRUEBA PILOTO
+// 5780833 Administrador:
+// 3116026 DIR OR 9
+// 2758981 DIR OR 9
+// 5727128 TECSDE 7
+// 3524094 TECSDE 7->22
+// 3078765 TECSDE 7->38
+// RESLEG 22 Responsable de Legalizaón
+// DDEP   38 Director Departamental
+// 4055461 TECSDI 10 Técnico SIE Distrital
+
+## supabase -> rubenCh1ara##..
+
+## IA IDE
+#  npm install -g @github/copilot
+#  npm install -g @google/gemini-cli
+#  si error ENOTEMPTY: directory not empty, rename '/home/rchiara/.nvm/versions/node/v22.16.0/lib/node_modules/@google/gemini-cli' -> '/home/rchiara/.nvm/versions/node/v22.16.0/lib/node_modules/@google/.gemini-cli-RGEtWzur'
+#  rm -rf /home/rchiara/.nvm/versions/node/v22.16.0/lib/node_modules/@google/gemini-cli
+#  npm cache clean --force
+
+## hilos websockets
+#  estados finales COMPLETED y FAILED proceso terminado (hilo disponible)
+#  multi procesos (multi topic) topic + jobid (incluso para el mismo usuario)
+#
+
+### 1. Módulo de Registro y Solicitud (Solicitante)
+*   **Como solicitante**, quiero ingresar al portal web de la DDE y registrar mis datos personales (C.I., nombre, fecha de nacimiento), de contacto (correo) y del trámite (N° de serie y año del diploma) para **iniciar mi solicitud de certificación**.
+*   **Como solicitante**, quiero recibir un **código preliminar de seguimiento** por correo electrónico para poder consultar el estado de mi trámite en cualquier momento.
+*   **Como solicitante**, quiero seleccionar si mi trámite es para uso **Nacional o para el Extranjero** para que el sistema aplique la tarifa correspondiente (Bs. 72 o Bs. 134 respectivamente).
+
+### 2. Módulo de Pagos e Integración
+*   **Como solicitante**, quiero elegir entre diferentes modalidades de pago (**Tarjeta de Débito/Crédito, Código QR o CPT**) para completar el pago de mi trámite de forma cómoda.
+*   **Como sistema**, debo conectarme con la pasarela de pagos para generar el registro de la transacción y **validar el estado del pago** (procesado o fallido) antes de continuar con el flujo.
+*   **Como solicitante de trámite nacional**, quiero descargar un formulario de pago para realizar el depósito en ventanillas del Banco Unión si decido no pagar en línea.
+
+### 3. Módulo de Validación y Generación (Back-end)
+*   **Como sistema**, debo **cotejar la información** ingresada por el usuario con las bases de datos del **SIE y el SDBD** para verificar que el número de serie existe, coincide con el nombre y corresponde al año de emisión.
+*   **Como sistema**, debo generar la Certificación Digital en **formato PDF** automáticamente una vez que los datos hayan sido validados y el pago confirmado.
+*   **Como sistema**, quiero mostrar **mensajes de error claros** (ej. "El número de serie no existe") si la validación falla, para que el usuario sepa cómo proceder.
+
+### 4. Flujo de Firma Digital (Personal DDE)
+*   **Como Técnico de Legalizaciones**, quiero acceder a una bandeja de trámites pendientes para **firmar digitalmente** las certificaciones generadas usando mis credenciales (Token/PIN).
+*   **Como Jefe de Asuntos Administrativos**, quiero recibir los trámites firmados por el técnico para **incorporar mi firma digital** y avanzar el proceso.
+*   **Como Director Departamental**, quiero visualizar y firmar digitalmente solo aquellos trámites que tienen como **destino el extranjero**, asegurando la validez legal internacional.
+
+### 5. Módulo de Gratuidad (Bachilleres 2025+)
+*   **Como bachiller graduado a partir de 2025**, quiero ingresar mi **código de certificación gratuita** para obtener mi documento sin realizar un pago económico.
+*   **Como sistema**, debo validar que el código de gratuidad esté en estado **"Disponible"** y no haya sido utilizado previamente antes de permitir el canje.
+
+### 6. Módulo de Gestión Histórica (Pre-2009)
+*   **Como personal de ventanilla**, quiero registrar manualmente en el SIE los datos de diplomas de gestiones anteriores a 2009 a partir de **folders físicos**, para poder generar su certificación con código QR.
+*   **Como personal administrativo**, quiero realizar la **conciliación bancaria** de los depósitos físicos realizados para trámites antiguos, identificando diferencias y aplicando correcciones.
+
+### 7. Administración y Soporte
+*   **Como Administrador del Sistema**, quiero **parametrizar y actualizar las tarifas** de certificación en el sistema cuando se emita una nueva Resolución Ministerial.
+*   **Como Administrador**, quiero revisar y **liberar manualmente los correos electrónicos** que se encuentren pendientes o fallidos para asegurar que el usuario reciba su documento.
+*   **Como Administrador**, quiero generar un **reporte de historial de errores** para evaluar mejoras técnicas en el sistema.
+
+***
+
+🔹
+
+¿Existe el primer amor en el software? Notepad++ vs. Zed 💻✨
+Hay cosas que el tiempo no borra. Aunque hoy mi hogar sea Linux y no piense mirar atrás, tengo que confesarlo: a veces extraño a Notepad++. Era esa "navaja suiza" que nunca te fallaba, la herramienta que abrías para un fix rápido o para editar ese archivo .env rebelde.
+
+Pero como en todo buen proceso de evolución, hay que dejar espacio para lo nuevo. Recientemente he estado probando Zed, y ese "feeling" de editor puro ha vuelto.
+
+Aquí una pequeña comparativa desde la nostalgia y el rendimiento:
+
+🔹 Notepad++ (El Viejo Confiable): Es como ese auto clásico que arranca a la primera sin importar el clima. Su fuerte era la simplicidad: abrías un archivo de 500MB y ni pestañeaba. Sus plugins eran como piezas de lego que armaban un IDE sin querer queriendo.
+🔹 Zed (El "Speedster" Moderno): Si Notepad++ era un motor a prueba de balas, Zed es un cohete de fibra de carbono. Escrito en Rust, es ridículamente rápido y ligero. Tiene esa filosofía minimalista que te permite concentrarte solo en el código, algo vital cuando estás saltando entre lenguajes.
+🔹 La Filosofía: Notepad++ se sentía como una herramienta de artesano; Zed se siente como el futuro del desarrollo agéntico. Ambos comparten esa esencia de "editor de texto primero, IDE después" que tanto nos gusta a los que preferimos la terminal a los menús pesados.
+
+Veredicto: Notepad++ siempre tendrá un lugar en mi corazón, pero Zed es el compañero que mi flujo de trabajo en Linux necesitaba para sentirse completo.
+
+¿Tú también extrañas a tu ex?
+
+#Linux #NotepadPlusPlus #ZedEditor #Rust
