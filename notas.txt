@@ -1,3 +1,72 @@
+PRUEBA ORURO 2026
+5780833 Administrador
+4057503 DIR QUIRQUINCHO SECUNDARIO
+4038245 DIR DIOS ES AMOR
+3119589 DIR SAN JUAN DE DIOS
+3075402 DIR LUIS MENDIZABAL
+4055461 DIR JOSE MARIA SIERRA
+4039714 DIR LOS ANGELES DE NAZARIA
+3078765 TECSDE
+5727128 TECSDE
+3524094 RESLEG
+4935044 DDEP
+
+Bugs
+Cuentas
+Cargo	Código	Rol id
+Admin	5780833	21
+Director UE	3223638	9
+Distrital	6246990	10
+TECNICO SIE DEPARTAMENTAL	5876489	7
+Resp. Legalización	4454576	22
+Director Departamental	6296326	38
+Departamento: La Paz
+Distrito: La Paz 2
+Unidad Educativa: DORA SCHMIDT B
+codigo rue: 80730438
+codigo distrito: 2082
+codigo departamento: 2
+gestion: 2025
+
+DIRECTOR: 2309950 | bandejas, derivar, get /api/estudiantes,
+TÉCNICO SIE DISTRITAL: 6005899 | bandejas, derivar, get /api/estudiantes,
+TECNICO SIE DEPARTAMENTAL: 3357302 | bandejas, derivar, get /api/estudiantes,
+RESPONSABLE DE LEGALIZAÓN: 2634772 | bandejas, derivar, get /api/estudiantes,
+DIRECTOR DEPARTAMENTAL: 2509010 | bandejas, derivar, get /api/estudiantes,
+
+Departamento: Oruro
+Distrito:
+Unidad Educativa:
+
+DIRECTOR: 3505807 | bandejas, derivar, get /api/estudiantes,
+TÉCNICO SIE DISTRITAL: 5727128 | bandejas, derivar, get /api/estudiantes,
+TECNICO SIE DEPARTAMENTAL: 3078765 | bandejas, derivar, get /api/estudiantes,
+RESPONSABLE DE LEGALIZAÓN: 3524094 | bandejas, derivar, get /api/estudiantes,
+DIRECTOR DEPARTAMENTAL: 4935044 | bandejas, derivar, get /api/estudiantes,
+
+Solo dir UE Pando
+SELECT u.* FROM
+usuarios.usuarios_roles ur
+INNER JOIN usuarios u ON ur.id_usuario = u.id
+INNER JOIN usuarios.personas up ON u.id_persona = up.id
+INNER JOIN sie_fdw.vw_unidades_educativas_usuario_persona_paralelos_6to uep ON u.id_persona = uep.persona_id
+WHERE ur.id_rol = 9
+AND nombre_departamento = 'Pando'
+##sie
+
+SELECT * FROM usuario_rol ur
+INNER JOIN usuario u ON ur.usuario_id = u.id AND u.esactivo = True
+INNER JOIN persona p ON u.persona_id = p.id AND p.esvigente = True
+WHERE ur.rol_tipo_id  = 7
+AND ur.esactivo = True
+http://190.129.60.113:9000/rustfs/console/browser
+admintest
+UmAJYCNzYtwm
+
+Para cambiar qué hace un botón o su lógica visual fina (color, icono, tooltip), edita AccionesCell.tsx.
+Para cambiar quién puede ver el botón a nivel de rol/bandeja, revisa usePermisosEstudiante y cómo se usa en DatatableEstudiantes.tsx.
+Para apagar botones globalmente por fechas/hitos, revisa la configuración de periodos en AccionesCell.tsx.
+
 ## Notas y Bitacora del capitan.
 　　Las herramientas, servidores MCP y plugins para BD integrados con IA, son mucho mas utiles para analizar y contextualizar BD legacy.
 　　El mecanismo de autorizacion casbin se puede usar desde base de datos y desde archivos de configuracion y CSV.
@@ -51,7 +120,7 @@ Tabla que contiene las cantidades de alumnos matriculados por departamento (dato
 # OBJETIVOS CONSULTORIA MINEDU
 Diseñar, desarrollar e implementar sistemas informáticos, con énfasis en la construcción de una herramienta para el procesamiento, visualización y gestión de información sobre logros educativos en los distintos niveles del sistema educativo, así como en el desarrollo de otros sistemas vinculados a proyectos de desburocratización mediante la incorporación de firma digital y la integración con pasarelas de pago.
 
-# DEMO PRUEBA PILOTO
+# DEMO PRUEBA PILOTO 2025
 // 5780833 Administrador:
 // 3116026 DIR OR 9
 // 2758981 DIR OR 9

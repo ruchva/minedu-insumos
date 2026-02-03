@@ -70,3 +70,10 @@ sudo nano /etc/systemd/system.conf
 # reboot
 # (si usas terminal personalizada)
 # añade ulimit -n 1048576 a tu archivo .zshrc
+# espacio libre en disco
+df -h /
+# Busca archivos que contengan "utils" y luego busca "Base58" dentro de ellos
+fdfind "utils" -x rg "Base58"
+#
+fdfind "utils" -x rg "Base58" | xargs grep -H "Base58"
+find . -name "*utils*" -exec grep -H "Base58" {} +
