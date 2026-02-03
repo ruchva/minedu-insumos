@@ -17,8 +17,6 @@ git merge --continue
 # GitHub Auth
 sudo apt install gh
 gh auth login
-# gemini
-GEMINI_API_KEY=AIzaSyDdSrxTxZGaB6C3_RayX3psqSvDgKrVHg4
 # configuracion proxy Minedu para desarrollo
 git config --global http.proxy http://10.20.30.2:3128
 git config --global https.proxy http://10.20.30.2:3128
