@@ -75,3 +75,13 @@ fdfind "utils" -x rg "Base58"
 #
 fdfind "utils" -x rg "Base58" | xargs grep -H "Base58"
 find . -name "*utils*" -exec grep -H "Base58" {} +
+# imagenes
+convert fullstack-merm.png -resize 800x600 fullstack-merm2.png
+convert fullstack-merm.png -resize 1920x1080 fullstack-merm2.png
+
+
+
+
+
+
+
