@@ -10,7 +10,11 @@ PRUEBA ORURO 2026
 5727128 TECSDE
 3524094 RESLEG
 4935044 DDEP
-
+🔹
+⚠️ Ojo
+👉 No
+👉 Si
+NOTAS SAM
 Bugs
 Cuentas
 Cargo	Código	Rol id
@@ -59,13 +63,17 @@ INNER JOIN usuario u ON ur.usuario_id = u.id AND u.esactivo = True
 INNER JOIN persona p ON u.persona_id = p.id AND p.esvigente = True
 WHERE ur.rol_tipo_id  = 7
 AND ur.esactivo = True
+
+##
 http://190.129.60.113:9000/rustfs/console/browser
 admintest
 UmAJYCNzYtwm
+##
 
 Para cambiar qué hace un botón o su lógica visual fina (color, icono, tooltip), edita AccionesCell.tsx.
 Para cambiar quién puede ver el botón a nivel de rol/bandeja, revisa usePermisosEstudiante y cómo se usa en DatatableEstudiantes.tsx.
 Para apagar botones globalmente por fechas/hitos, revisa la configuración de periodos en AccionesCell.tsx.
+
 
 ## Notas y Bitacora del capitan.
 　　Las herramientas, servidores MCP y plugins para BD integrados con IA, son mucho mas utiles para analizar y contextualizar BD legacy.
@@ -177,10 +185,6 @@ Diseñar, desarrollar e implementar sistemas informáticos, con énfasis en la c
 *   **Como Administrador del Sistema**, quiero **parametrizar y actualizar las tarifas** de certificación en el sistema cuando se emita una nueva Resolución Ministerial.
 *   **Como Administrador**, quiero revisar y **liberar manualmente los correos electrónicos** que se encuentren pendientes o fallidos para asegurar que el usuario reciba su documento.
 *   **Como Administrador**, quiero generar un **reporte de historial de errores** para evaluar mejoras técnicas en el sistema.
-
-***
-
-🔹
 
 ¿Existe el primer amor en el software? Notepad++ vs. Zed 💻✨
 Hay cosas que el tiempo no borra. Aunque hoy mi hogar sea Linux y no piense mirar atrás, tengo que confesarlo: a veces extraño a Notepad++. Era esa "navaja suiza" que nunca te fallaba, la herramienta que abrías para un fix rápido o para editar ese archivo .env rebelde.

@@ -1,3 +1,41 @@
+with totalestudiantesgeneral as (
+     SELECT COUNT(*) AS total_estudiantes_general
+     FROM operativo.vw_estudiantes_diploma_documento_6to v
+     WHERE v.codigo_departamento = 4
+)
+SELECT
+    MAX(v.nombre_departamento_ue) AS departamento,
+    v.codigo_distrito as id_distrito,
+    v.nombre_distrito as distrito,
+    COUNT(distinct v.cod_ue_id)   AS total_unidades_educativas,
+    COUNT(distinct v.cod_ue_id)   AS unidades_educativas,
+    COUNT(distinct v.codigo_rude) AS total_estudiantes,
+    COUNT(distinct v.codigo_rude) filter (where v.estado_tramite = 'RZ')                AS total_rezagados,
+    COUNT(distinct v.codigo_rude) filter (where v.estado_tramite in ('JL', 'DP', 'DG')) AS total_validos,
+    COUNT(distinct v.codigo_rude) filter (where v.estado_tramite in ('OD'))             AS total_observados,
+    COUNT(*) over() AS total_registros,
+    MAX(t.total_estudiantes_general) AS total_estudiantes_general,
+    (dd.file_path is not null) AS firma_digital_estado,
+    dd.file_path AS firma_digital_path,
+    SUM(li.cantidad) AS cantidad_impresion,
+    CASE
+        WHEN COUNT(*) FILTER (WHERE li.estado IS NULL) > 0 THEN NULL
+        ELSE MIN(li.estado)
+    END AS estado,
+    COUNT(*) FILTER (WHERE v.estado_tramite NOT IN ('PC')) AS revision_tecnica,
+    COUNT(*) FILTER (WHERE v.estado_matricula IN ('PROMOVIDO', 'REPROBADO')) AS notas_finales
+FROM operativo.vw_estudiantes_diploma_documento_6to v
+    LEFT JOIN operativo.diploma_documentos dd on dd.file_path = 2026||'/'||replace(v.nombre_departamento_ue, '%20', ' ')||'/'||v.codigo_distrito||'/firmado_acta_autorizacion_emision_distrito_'||v.codigo_distrito||'.pdf'
+    LEFT JOIN operativo.lotes_impresion li ON v.codigo_distrito = li.id_distrito
+    CROSS JOIN totalestudiantesgeneral t
+WHERE v.codigo_departamento = 4
+    GROUP BY v.codigo_distrito, v.nombre_distrito, dd.file_path
+    ORDER BY v.nombre_distrito asc
+LIMIT 21 OFFSET 0;
+
+select * from operativo.diploma_documentos where file_path ilike '%firmado_%';
+
+
 SELECT 
     id,
     codigo_rol,
