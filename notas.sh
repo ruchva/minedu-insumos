@@ -78,10 +78,32 @@ find . -name "*utils*" -exec grep -H "Base58" {} +
 # imagenes
 convert fullstack-merm.png -resize 800x600 fullstack-merm2.png
 convert fullstack-merm.png -resize 1920x1080 fullstack-merm2.png
+#
+# pega este bloque al final de tu archivo ~/.zshrc
+# ==========================================
+# ALIAS DE NAVEGACIÓN Y BÚSQUEDA (CASA)
+# ==========================================
 
+# 1. Atajos de carpetas
+alias ws='cd /mnt/E/Workspace'
 
+# 2. Búsqueda de Archivos (fd)
+alias fd='fdfind'
+# Buscar archivo por nombre en el Workspace
+alias ff='fdfind . /mnt/E/Workspace --type f -i'
 
+# 3. Búsqueda de Contenido (ripgrep)
+# Busca texto ignorando mayúsculas y carpetas ocultas/node_modules
+alias bb='rg -i --hidden --glob "!.git/*" --glob "!node_modules/*"'
 
+# 4. Gestión de Espacio
+# Ver cuánto espacio queda en tus discos principales
+alias discos='df -h | grep -E "Filesystem|sd|nvme"'
+# Analizar visualmente qué carpeta pesa más en el Workspace
+alias pesa='ncdu /mnt/E/Workspace'
 
-
-
+# 5. Combo: Buscar archivo y luego buscar texto dentro de él
+function find_and_grep() {
+    fdfind "$1" /mnt/E/Workspace -x rg "$2"
+}
+alias ffg=find_and_grep
