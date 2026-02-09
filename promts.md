@@ -1,3 +1,7 @@
+Entregable: Genera un "Artifact" con la correccion.
+Entregable: dame la estrategia para implementarlo de manera mas directa y transparente
+* Ejecuta autónomamente y notifícame si encuentras errores bloqueantes.
+
 objetivo: potenciar la documentacion tecnica del proyecto
 segun el siguiente contexto adiciona y organiza la informacion del proyecto
 contexto: toda la informacion consolidada esta clasificada por gestión, departamento, provincia, municipio, distrito, area rural o urbana

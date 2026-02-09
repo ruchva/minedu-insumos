@@ -107,3 +107,11 @@ function find_and_grep() {
     fdfind "$1" /mnt/E/Workspace -x rg "$2"
 }
 alias ffg=find_and_grep
+
+# ==========================================
+# copia de disco completo para llevarme el servidor de desarrollo completo
+# ==========================================
+# 1. Backup de disco
+alias backup='ssh -p9030 root@YOUR-IP "dd if=/dev/vda1 status=progress | gzip -1 -" | dd of=image.gz status=progress'
+# 2. Restaurar backup de disco
+alias restore='ssh -p9030 root@YOUR-IP "dd if=image.gz status=progress | gunzip -d - | dd of=/dev/vda1 status=progress"'
