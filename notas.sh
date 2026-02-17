@@ -36,6 +36,26 @@ sudo journalctl --vacuum-size=500M
 flatpak uninstall --unused
 docker system prune -a --volumes
 #
+# installing vscode on Debian
+#
+# You can install vscode using following commands:
+# 1- Start by updating the packages index and installing the dependencies by typing:
+sudo apt update
+# 2- sudo apt install software-properties-common apt-transport-https curl
+# 3- Import the Microsoft GPG key using the following curl command:
+curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+# 4- Add the Visual Studio Code repository to your system:
+sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+# 5- Install the Visual Studio Code package with:
+sudo apt update
+sudo apt install code
+# updating vscode on Debian
+# You can update vscode using following commands:
+wget 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64' -O /tmp/code_latest_amd64.deb
+sudo dpkg -i /tmp/code_latest_amd64.deb
+#
+# python
+#
 sudo chown -R $USER:$USER /mnt/D/* /mnt/E/* && sudo chmod -R u+rwX /mnt/D /mnt/E
 # para que funcione la libreria python
      export PYTHONPATH=$PYTHONPATH:. alembic upgrade head
