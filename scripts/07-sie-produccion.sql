@@ -1,3 +1,5 @@
+SELECT public.refrescar_vw_datos_estudiantes_6to();
+
 /**
  * mecanismo para migracion de datos el cual fue pasado a la logica de las vistas materializadas
  * 

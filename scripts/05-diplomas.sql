@@ -1,3 +1,61 @@
+select * from operativo.vw_estudiantes_diploma_documento_6to
+where codigo_distrito =4001
+and estado_matricula = 'PROMOVIDO'           
+and archivo_declaracion_jurada_estado 
+--and archivo_declaracion_jurada_firmada_estado    
+;
+
+SELECT v.codigo_rude, 	v.cod_ue_id, 	ue.gestion,
+    ue.desc_ue AS nombre_unidad_educativa,
+    v.paterno AS ap_paterno,
+    v.materno AS ap_materno,
+    v.nombre, v.fecha_nacimiento, 	v.genero, 	v.empareja_sereci,
+    v.carnet AS cedula,
+    v.expedido_id,  v.dni,    v.paralelo,    v.estado_matricula,    v.estado_proceso,    v.provincia,    v.localidad,    v.pais,    v.nombre_departamento,
+    ue.nombre_departamento AS nombre_departamento_ue,
+    v.codigo_departamento,    v.nombre_distrito,    v.codigo_distrito,
+    CASE WHEN f.file_path IS NOT NULL THEN true ELSE false END AS archivo_foto_digital_estado,
+    f.file_path AS archivo_foto_digital,
+    CASE WHEN d.file_path IS NOT NULL THEN true ELSE false END AS archivo_declaracion_jurada_estado,
+    d.file_path AS archivo_declaracion_jurada,
+    CASE WHEN df.file_path IS NOT NULL THEN true ELSE false END AS archivo_declaracion_jurada_firmada_estado,
+    df.file_path AS archivo_declaracion_jurada_firmada,
+    t.id_tramite,
+    t.estado AS estado_tramite,
+    t.es_rezagado
+FROM sie_fdw.vw_datos_estudiantes_6to v
+     LEFT JOIN operativo.diploma_documentos f ON v.codigo_rude::text = f.codigo_rude::text AND f.tipo_documento::text = 'FOTOGRAFIA'::text AND f.estado::text = 'ACTIVO'::text
+     LEFT JOIN operativo.diploma_documentos d ON v.codigo_rude::text = d.codigo_rude::text AND d.tipo_documento::text = 'DECLARACION_JURADA'::text AND d.estado::text = 'ACTIVO'::text
+     LEFT JOIN operativo.diploma_documentos df ON v.codigo_rude::text = df.codigo_rude::text AND df.tipo_documento::text = 'DECLARACION_JURADA_FIRMADA'::text AND df.estado::text = 'ACTIVO'::text
+     LEFT JOIN operativo.tramites t ON v.codigo_rude::text = t.codigo_rude::text
+     LEFT JOIN sie_fdw.vw_unidades_educativas_usuario_persona_paralelos_6to ue ON v.cod_ue_id = ue.cod_ue_id 
+WHERE v.cod_ue_id =81230066 and v.paralelo ='A' and v.estado_matricula = 'EFECTIVO';
+-- ############################################################################
+-- DocumentosController api/documentos/declaracion-jurada-revision-tramites/unidad-educativa/{codigoRue}
+SELECT e.codigo_rude as codigo_rude, e.archivo_declaracion_jurada as filepath
+FROM operativo.vw_estudiantes_diploma_documento_6to e
+WHERE e.cod_ue_id = 81230066
+			AND e.paralelo = 'A'
+			--AND e.archivo_declaracion_jurada_estado = true
+			AND e.estado_matricula = 'EFECTIVO'
+ORDER BY e.ap_paterno ASC, e.ap_materno ASC, e.nombre asc;
+--
+select * FROM operativo.vw_estudiantes_diploma_documento_6to e 
+where e.archivo_declaracion_jurada_estado =false;
+--
+   select * 
+    from operativo.vw_estudiantes_diploma_documento_6to e 
+    WHERE
+        e.cod_ue_id = 81230066
+        AND e.estado_matricula = 'EFECTIVO'          
+    ORDER BY
+        e.paralelo ASC,
+        e.ap_paterno ASC,
+        e.ap_materno ASC,
+        e.nombre asc;  
+
+update tramites set estado ='PC';
+
 with totalestudiantesgeneral as (
      SELECT COUNT(*) AS total_estudiantes_general
      FROM operativo.vw_estudiantes_diploma_documento_6to v

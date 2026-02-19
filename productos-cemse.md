@@ -1,0 +1,6 @@
+Primer Producto: Documento de análisis técnico y funcional para la inclusión del módulo para la emisión de Diploma de Bachiller Digital en el Ámbito de Educación Alternativa. Código fuente del desarrollo en frontend del módulo para el registro de información por los solicitantes, del Sistema de Certificación Digital de Diploma de Bachiller. 
+
+Segundo Producto: Sistema de Gestión de diplomas de Bachiller Digital ajustado e implementado, que contemple la inclusión del módulo para el Ámbito de Educación Alternativa, la ejecución de pruebas funcionales y la entrega del código fuente documentado.
+
+El FACILITADOR deberá presentar cada uno de los productos establecidos con un informe y toda la documentación adjunta al mencionado producto. Además, los productos señalados precedentemente estarán supervisados por la Dirección General de Planificación y/o la Contraparte designada para tal efecto por parte del Ministerio de Educación, y en coordinación con la persona responsable de UNICEF. 
+productos
