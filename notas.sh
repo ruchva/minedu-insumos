@@ -30,6 +30,10 @@ npm install -g @google/gemini-cli
 rm -rf /home/rchiara/.nvm/versions/node/v22.16.0/lib/node_modules/@google/gemini-cli
 npm install -g npm@11.7.0 # o sea actualizar npm
 npm install -g @google/gemini-cli
+#  si error ENOTEMPTY: directory not empty, rename '/home/rchiara/.nvm/versions/node/v22.16.0/lib/node_modules/@google/gemini-cli' -> '/home/rchiara/.nvm/versions/node/v22.16.0/lib/node_modules/@google/.gemini-cli-RGEtWzur'
+#  rm -rf /home/rchiara/.nvm/versions/node/v22.16.0/lib/node_modules/@google/gemini-cli
+#  npm cache clean --force
+#
 #
 sudo apt update && sudo apt full-upgrade -y && flatpak update -y && sudo apt autoremove && sudo apt autoclean
 sudo journalctl --vacuum-size=500M
@@ -41,7 +45,7 @@ docker system prune -a --volumes
 # You can install vscode using following commands:
 # 1- Start by updating the packages index and installing the dependencies by typing:
 sudo apt update
-# 2- sudo apt install software-properties-common apt-transport-https curl
+sudo apt install software-properties-common apt-transport-https curl
 # 3- Import the Microsoft GPG key using the following curl command:
 curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 # 4- Add the Visual Studio Code repository to your system:
