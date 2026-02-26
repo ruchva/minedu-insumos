@@ -1,3 +1,77 @@
+**Prompt: diploma-frontend**
+```text
+Actúa como un desarrollador Frontend Experto. Necesito que generes el andamiaje (scaffold) inicial para un panel de administración (Dashboard) de un sistema de Emisión de Diplomas, utilizando estrictamente el siguiente stack tecnológico:
+
+- React 18 (o 19) con TypeScript.
+- Vite como empaquetador (bundler).
+- React Router v6+ para el enrutamiento (enfoque Single Page Application puro).
+- Tailwind CSS para los estilos (configurando paletas personalizadas en tailwind.config.ts).
+- Shadcn UI para los componentes base.
+- Zustand para el manejo del estado global de la UI (ej. abrir/cerrar sidebar).
+- Íconos de Lucide React.
+
+### 🎨 Requisitos Gráficos Estrictos (Theme & UI/UX):
+El diseño debe ser indistinguible visualmente del diseño existente en Material UI. Aplica la siguiente configuración en tu `tailwind.config.ts` o CSS global:
+
+**1. Tipografía:**
+- Fuente global: `Roboto`, Arial, sans-serif.
+
+**2. Paleta de Colores (Modo Claro - Default):**
+- **Fondo de la aplicación (Body):** `#eeeeee` (Gris claro neutro).
+- **Fondo de Superficies (Cards, Navbar, Dialogs):** `#ffffff` (Blanco puro).
+- **Color Principal (Primary):** `#1E293B` (Equivalente exacto a slate-800 en Tailwind).
+- **Color Secundario (Secondary):** `#555F71`.
+- **Texto Principal:** `#1A1A1A`.
+- **Rojo/Error:** `#BA1B1B`.
+
+**3. Paleta de Colores (Modo Oscuro):**
+- **Fondo de la aplicación (Body):** `#494949`.
+- **Fondo del Sidebar:** `#2A2928`.
+- **Fondo de Superficies (Cards):** `#373635` o `#2A2928`.
+- **Color Principal (Primary):** `#7f8897`.
+- **Color Secundario (Secondary):** `#BDC7DC`.
+- **Texto Principal:** `#FAFAFA` y `#EDEDED` (texto secundario).
+
+### 🏗️ Estructura del Layout Principal (BaseLayout):
+El layout general del sistema debe consistir en la clásica estructura de "Admin Dashboard":
+
+**1. Sidebar (Panel Lateral Izquierdo):**
+- En modo claro su fondo debe ser el **Primary (`#1E293B`)** y los textos blanco/gris (`#FFFFFF` para seleccionado, `#454F5B` o gris claro para inactivos). En modo oscuro usa `#2A2928`.
+- En la parte superior del sidebar (o en el navbar según tamaño), debe haber un contenedor de Imagen (simulando un logo) con fuente `/logo-educacion.png` (mantén un placeholder que apunte a ese src).
+- Debe ser colapsable mediante Zustand. Ancho expandido: 255px aprox.
+- Rutas de ejemplo: Dashboard, Estudiantes, Trámites, Configuración.
+- Los items seleccionados deben tener un `border-radius` de 10px y un fondo más claro o blanco (con opacidad).
+
+**2. Navbar (Cabecera / Topbar):**
+- Debe tener el efecto visual `backdrop-filter: blur(12px)` simulando vidrio esmerilado, sin bordes toscos superiores o laterales.
+- Fija en la parte superior. Botón de hamburguesa a la izquierda (icono Lucide).
+- A la derecha: Avatar del usuario y botón de *Theme Switcher* (Claro/Oscuro).
+
+**3. Área de Contenido Principal (Main Content):**
+- Fondo general usa el color de Body (`#eeeeee` en claro).
+- Breadcrumbs en la parte superior que muestre la ruta actual.
+- Usa `border-radius: 12px` (rounded-xl) o 8px para las *Cards* u hojas de contenido, quitando el sombreado (`elevation: 0`) para un diseño plano (flat) y usando bordes grises suaves (variant outlined).
+- El Scrollbar del sistema debe estilizarse: fondo `#E0E0E0`, barra central `#1E293B` con bordes redondeados.
+
+**Requisitos Adicionales:**
+- Crea una vista "Dashboard" genérica para poner a prueba los colores de las tarjetas (Cards sin sombra, fondo blanco).
+- Asegúrate de que los inputs/campos de texto usen *variant="outlined"* (estilo clásico con borde visible y tamaño "small").
+
+**Requisitos adicionales de código:**
+- Proporciona la estructura base de carpetas orientada a "Feature-Sliced" (ej. `src/features`, `src/components/ui`, `src/components/layout`).
+- Configura un React Router base en `App.tsx` o `main.tsx` que integre el `BaseLayout`.
+- Crea dos pantallas en blanco como ejemplo de enrutamiento: una "Home/Dashboard" genérica y otra de "Perfil".
+- Utiliza componentes de layout semánticos de HTML5 (`<aside>`, `<header>`, `<main>`, `<nav>`).
+- Asegúrate de que el diseño se vea limpio, profesional, moderno y totalmente responsivo (mobile-first).
+```
+---
+
+### Instrucciones Adicionales para ti:
+1. Pega este texto exacto en tu generador de código preferido. Al especificar los códigos Hexadecimales exactos (`#1E293B`, `#eeeeee`, etc), la IA mapeará esto directamente en la configuración base de las variables de Shadcn UI y Tailwind.
+2. Asegúrate de tener disponible la imagen del logotipo (`logo-educacion.png`) en la carpeta `public/` del nuevo andamiaje una vez lo descargues/clones.
+
+
+
 Entregable: Genera un "Artifact" con la correccion.
 Entregable: dame la estrategia para implementarlo de manera mas directa y transparente
 * Ejecuta autónomamente y notifícame si encuentras errores bloqueantes.

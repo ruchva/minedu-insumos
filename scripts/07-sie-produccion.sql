@@ -1,5 +1,77 @@
 SELECT public.refrescar_vw_datos_estudiantes_6to();
 
+
+--***********************
+--* EDUCACION ALTERNATIVA FUNSION SIE_PRODUCCION
+--***********************
+select j.id as estudiante_id_RAEP
+	, i.id as estudiante_inscripcion_id_RAEP
+	, null::smallint as estadomatricula_tipo_id_fin_R
+	, null::character varying(80) as estadomatricula_fin_R
+	, null::character varying(80) as estadomatricula_inicio_R
+	, f.gestion_tipo_id as gestion_tipo_id_RAEP
+	, f.periodo_tipo_id as periodo_tipo_id_RAEP
+	, (select periodo from periodo_tipo where id=f.periodo_tipo_id) as periodo_RAEP
+	, e.institucioneducativa_id as institucioneducativa_id_RAEP
+	, z.institucioneducativa as institucioneducativa_RAEP
+	, z.institucioneducativa_tipo_id as institucioneducativa_tipo_id_RAEP
+	, q.descripcion as institucioneducativa_tipo_descrip_RAEP
+	, null::smallint as nivel_tipo_id_R
+	, null::character varying(45) as nivel_R
+	, null::smallint as ciclo_tipo_id_R
+	, null::character varying(50) as ciclo_R
+	, null::smallint as grado_tipo_id_R
+	, null::character varying(45) as grado_R
+	, h.turno_tipo_id as turno_tipo_id_RAEP
+	, (select turno from turno_tipo where id=h.turno_tipo_id) as turno_RAEP
+	, h.paralelo_tipo_id as paralelo_tipo_id_RAEP
+	, (select paralelo from paralelo_tipo where id=h.paralelo_tipo_id) as paralelo_RAEP
+	, j.codigo_rude as codigo_rude_RAEP
+	, j.paterno as paterno_RAEP
+	, j.materno as materno_RAEP
+	, j.nombre as nombre_RAEP
+	, (select genero from genero_tipo where id=j.genero_tipo_id)as genero_RAEP
+	, j.fecha_nacimiento as fecha_nacimiento_RAEP
+	, j.carnet_identidad as carnet_identidad_RAEP
+	, j.complemento as complemento_RAEP
+	, f.sucursal_tipo_id as sucursal_tipo_id_A
+	, a.codigo as superior_facultad_area_tipo_A
+	, a.facultad_area as facultad_area_A
+	, b.codigo as superior_especialidad_tipo_id_A
+	, b.especialidad as especialidad_A
+	, d.codigo as superior_acreditacion_tipo_id_A
+	, d.acreditacion as acreditacion_A
+	, cast(null as smallint) as area_especial_id_E
+	, null::character varying(70) as area_especial_E
+	, cast(null as smallint) as nivel_id_E
+	, null::character varying(45) as nivel_E
+	, cast(null as smallint) as grado_id_E
+	, null::character varying(45) as grado_E
+	, null::text as tecnica_E
+	, cast(null as smallint) AS bloque_P
+	, cast(null as smallint) AS parte_P
+	, cast(null as date) AS fech_ini_P
+	, cast(null as date) AS fech_fin_P
+	, null::character varying(80) as estadomatricula_P
+	, h.id as institucioneducativa_curso_id_RAEP
+from superior_facultad_area_tipo a
+    inner join superior_especialidad_tipo b on a.id=b.superior_facultad_area_tipo_id
+    inner join superior_acreditacion_especialidad c on b.id=c.superior_especialidad_tipo_id
+    inner join superior_acreditacion_tipo d on c.superior_acreditacion_tipo_id=d.id
+    inner join superior_institucioneducativa_acreditacion e on e.acreditacion_especialidad_id=c.id
+    inner join institucioneducativa_sucursal f on e.institucioneducativa_sucursal_id=f.id
+    inner join institucioneducativa z on z.id = f.institucioneducativa_id 
+	inner join superior_institucioneducativa_periodo g on g.superior_institucioneducativa_acreditacion_id=e.id
+	inner join institucioneducativa_curso h on h.superior_institucioneducativa_periodo_id=g.id
+	inner join estudiante_inscripcion i on h.id=i.institucioneducativa_curso_id
+	inner join estudiante j on i.estudiante_id=j.id
+	inner join institucioneducativa_tipo q on z.institucioneducativa_tipo_id=q.id
+where 1=1 --limit 1000
+-- and codigo_rude = '''|| codigo_rude_in ||'''  
+-- and exists (select 1 from superior_modulo_periodo k where g.id=k.institucioneducativa_periodo_id)
+and f.gestion_tipo_id =2025 
+;
+
 /**
  * mecanismo para migracion de datos el cual fue pasado a la logica de las vistas materializadas
  * 
